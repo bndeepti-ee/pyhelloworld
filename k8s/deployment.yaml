@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pyhelloworld-minikube
+  name: pyhelloworld-minikube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pyhelloworld-minikube
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: pyhelloworld-minikube
+    spec:
+      containers:
+        - image: pyhelloworld
+          name: pyhelloworld
+          resources: {}
+          imagePullPolicy: Never
