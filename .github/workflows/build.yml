@@ -20,3 +20,25 @@ jobs:
 
       - name: Run tests
         run: pytest
+
+  docker-build:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: "test-actions"
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Build the Docker image
+        run: docker build . -t bndeepti/pyhelloworld:latest .
+
+      - name: Push the Docker image
+        run: docker push bndeepti/pyhelloworld:latest
