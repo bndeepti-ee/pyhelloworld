@@ -5,6 +5,8 @@ on:
     workflows: [Build]
     types:
       - completed
+    branch:
+      - test-actions
 
 jobs:
   docker-build:
