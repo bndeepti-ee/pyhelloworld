@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - test-actions
+      - main
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          ref: "test-actions"
+          ref: "main"
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -29,7 +29,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          ref: "test-actions"
+          ref: "main"
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
