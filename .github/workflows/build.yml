@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       - name: Build the Docker image
-        run: docker build . -t bndeepti/pyhelloworld:latest .
+        run: docker build -t bndeepti/pyhelloworld:latest .
 
       - name: Push the Docker image
         run: docker push bndeepti/pyhelloworld:latest
