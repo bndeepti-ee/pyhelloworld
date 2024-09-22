@@ -18,5 +18,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Activate python environment
+        run: source .venv/bin/activate
+
       - name: Run tests
         run: pytest
+
+      - name: Deactivate python environment
+        run: deactivate
